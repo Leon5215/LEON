@@ -11,8 +11,8 @@
   <!-- 導覽列 -->
   <div class="header">
     <a href="index.php">首頁</a>
-    <a href="index food.php">菜單</a>
-    <a href="index login.php">登入</a>
+    
+    <a href="login.php">登入</a>
   </div>
 
   <!-- 新增使用者卡片 -->

@@ -12,10 +12,10 @@
     </header>
 
     <nav>
-        <a href="index.php">首頁</a>
-        <a href="login.php">登入</a>
-        <a href="adduser.php">註冊新帳號</a>
-        <a href="about.php">關於</a>
+        <a href="#">首頁</a>
+        <a href="#">登入</a>
+        <a href="#">註冊新帳號</a>
+        <a href="#">關於</a>
     </nav>
 
     <div class="search-box">
