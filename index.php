@@ -8,25 +8,30 @@
 </head>
 <body>
     <header>
-        <h1>車款介紹</h1>
+        <h1>車款介紹平台</h1>
     </header>
 
     <nav>
-        <a href="#">首頁</a>
-        <a href="#">登入</a>
-        <a href="#">註冊新帳號</a>
-        <a href="#">關於</a>
+        <a href="index.php">首頁</a>
+        <a href="login.php">登入</a>
+        <a href="adduser.php">註冊新帳號</a>
+        <a href="about.php">關於</a>
     </nav>
 
     <div class="search-box">
-        <label for="search">搜尋車型：</label>
-        <input type="text" id="search" name="keyword" placeholder="輸入車型"
-            value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>">
+        <form method="get" action="index.php">
+            <label for="search">搜尋車型：</label>
+            <input type="text" id="search" name="keyword" placeholder="輸入車型"
+                value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>">
+            <button type="submit">搜尋</button>
+        </form>
     </div>
 
     <main>
-        <h2>歡迎來到車款介紹網站</h2>
-        <p>這裡提供最新、最詳細的車型資料與比較分析，幫助您找到最適合的愛車。</p>
+        <div class="welcome-card">
+            <h2>歡迎來到車款介紹網站</h2>
+            <p>這裡提供最新、最詳細的車型資料與比較分析，幫助您找到最適合的愛車。</p>
+        </div>
     </main>
 
     <footer>

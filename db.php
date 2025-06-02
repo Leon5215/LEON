@@ -1,5 +1,12 @@
 <?php
-$link=mysqli_connect("127.0.0.1","root","","leon");
-mysqli_set_charset($link,"set charset utf8");
-session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "leon"; // 你自己的資料庫名稱
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("連線失敗: " . $conn->connect_error);
+}
 ?>

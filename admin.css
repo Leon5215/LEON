@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+}
+
+header {
+    background-color: #c00;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #fff;
+}
+
+nav {
+    background-color: #222;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+}
+
+nav a:hover {
+    background-color: #c00;
+    border-radius: 5px;
+}
+
+main {
+    padding: 30px;
+    text-align: center;
+}
+
+.admin-welcome h2 {
+    color: #f33;
+}
+
+.admin-functions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.admin-card {
+    background-color: #1e1e1e;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #c00;
+    width: 300px;
+    text-align: left;
+}
+
+.admin-card h3 {
+    color: #f33;
+    margin-bottom: 10px;
+}
+
+.admin-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-card li {
+    margin: 10px 0;
+}
+
+.admin-card a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.admin-card a:hover {
+    text-decoration: underline;
+    color: #f66;
+}
+
+footer {
+    background-color: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 10px;
+    margin-top: 50px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #222;
+  color: white;
+}
+
+table th, table td {
+  border: 1px solid #444;
+  padding: 12px;
+  text-align: center;
+}
+
+table th {
+  background-color: #c00;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #333;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #c00;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.btn:hover {
+  background-color: #a00;
+}
+.car-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #222;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 8px #c00;
+}
+
+.car-table th, .car-table td {
+    border: 1px solid #444;
+    padding: 12px;
+    text-align: center;
+}
+
+.car-table th {
+    background-color: #c00;
+    color: white;
+}
+
+.car-table tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+.car-table tr:hover {
+    background-color: #333;
+}
+.car-table img.thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #666;
+}
+/* Lightbox 圖片預覽樣式 */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #fff;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -5,19 +5,20 @@ body {
     color: #fff;
 }
 
-header {
+/* ===== 導覽列 Header 樣式（與 style.css 一致） ===== */
+.header, header {
     background-color: #c00;
     padding: 20px;
     text-align: center;
 }
 
-header h1 {
+.header h1, header h1 {
     margin: 0;
     color: white;
     font-size: 28px;
 }
 
-nav {
+nav, .header {
     background-color: #222;
     padding: 12px 0;
     display: flex;
@@ -25,7 +26,7 @@ nav {
     gap: 40px;
 }
 
-nav a {
+nav a, .header a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
@@ -33,12 +34,13 @@ nav a {
     padding: 6px 12px;
 }
 
-nav a:hover {
+nav a:hover, .header a:hover {
     background-color: #c00;
     border-radius: 6px;
     transition: 0.3s;
 }
 
+/* ===== 主內容區 ===== */
 main {
     padding: 40px 20px;
     display: flex;
@@ -47,21 +49,24 @@ main {
     flex-direction: column;
 }
 
+/* ===== 註冊卡片 ===== */
 .login-card {
-    background-color: #1e1e1e;
+    background-color: #222;
     padding: 40px 30px;
     width: 350px;
+    margin: 50px auto;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(204, 0, 0, 0.7);
+    box-shadow: 0 0 12px #c00;
     text-align: left;
 }
 
 .login-card h2 {
-    text-align: center;
     color: #f33;
+    text-align: center;
     margin-bottom: 25px;
 }
 
+/* ===== 表單欄位 ===== */
 .input-group {
     margin-bottom: 20px;
 }
@@ -89,11 +94,12 @@ main {
     box-shadow: 0 0 6px #c00;
 }
 
+/* ===== 按鈕 ===== */
 .login-button {
     width: 100%;
     padding: 12px;
     background-color: #c00;
-    color: #fff;
+    color: white;
     border: none;
     border-radius: 6px;
     font-size: 16px;
@@ -105,6 +111,7 @@ main {
     background-color: #a00;
 }
 
+/* ===== 頁腳 ===== */
 footer {
     background-color: #222;
     color: #aaa;
@@ -113,68 +120,24 @@ footer {
     margin-top: 40px;
     font-size: 14px;
 }
-.search-box {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.search-box form {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #1c1c1c;
-    padding: 10px 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 8px #c00;
-}
-
-.search-box input[type="text"] {
-    padding: 10px;
-    width: 220px;
-    border: 1px solid #444;
-    border-radius: 6px;
-    background-color: #2b2b2b;
-    color: #fff;
-}
-
-.search-box input[type="text"]:focus {
-    outline: none;
-    border-color: #c00;
-    box-shadow: 0 0 5px #c00;
-}
-
-.search-box button {
-    padding: 10px 15px;
-    background-color: #c00;
+.form-table {
+    width: 100%;
     color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
+    margin-bottom: 20px;
 }
 
-.search-box button:hover {
-    background-color: #a00;
+.form-table td {
+    padding: 10px;
+    vertical-align: top;
 }
 
-/* 歡迎內容卡片 */
-.welcome-card {
-    background-color: #1e1e1e;
-    margin: 30px auto;
-    padding: 40px;
-    max-width: 700px;
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(204, 0, 0, 0.7);
-    text-align: center;
+.form-table input,
+.form-table textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
 }
 
-.welcome-card h2 {
-    color: #f33;
-    margin-bottom: 15px;
-}
-
-.welcome-card p {
-    color: #ddd;
-    font-size: 17px;
-    line-height: 1.6;
-}
