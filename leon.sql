@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2025-05-30 17:54:01
+-- 產生時間： 2025-06-02 18:21:34
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.0.30
 
@@ -24,15 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `car`
+-- 資料表結構 `cars`
 --
 
-CREATE TABLE `car` (
+CREATE TABLE `cars` (
   `id` int(11) NOT NULL,
-  `c_name` varchar(20) NOT NULL,
-  `icon` text NOT NULL,
-  `text` varchar(20) NOT NULL
+  `car_name` varchar(255) DEFAULT NULL,
+  `car_desc` text DEFAULT NULL,
+  `car_img` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `cars`
+--
+
+INSERT INTO `cars` (`id`, `car_name`, `car_desc`, `car_img`, `name`, `description`, `image`) VALUES
+(1, NULL, NULL, NULL, 'GR Corolla', '123', 'GR Corolla.jpeg');
 
 -- --------------------------------------------------------
 
@@ -65,13 +75,20 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- 傾印資料表的資料 `user`
+--
+
+INSERT INTO `user` (`id`, `account`, `password`, `name`, `type`) VALUES
+(1, '1234', '1234', 'Leon', 'a');
+
+--
 -- 已傾印資料表的索引
 --
 
 --
--- 資料表索引 `car`
+-- 資料表索引 `cars`
 --
-ALTER TABLE `car`
+ALTER TABLE `cars`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -91,10 +108,10 @@ ALTER TABLE `user`
 --
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `car`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `cars`
 --
-ALTER TABLE `car`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `cars`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `msg`
@@ -106,7 +123,7 @@ ALTER TABLE `msg`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
