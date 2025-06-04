@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2025-06-02 18:21:34
+-- 產生時間： 2025-06-04 08:04:06
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.0.30
 
@@ -47,18 +47,27 @@ INSERT INTO `cars` (`id`, `car_name`, `car_desc`, `car_img`, `name`, `descriptio
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `msg`
+-- 資料表結構 `messages`
 --
 
-CREATE TABLE `msg` (
+CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
-  `account` varchar(20) NOT NULL,
-  `title` varchar(20) NOT NULL,
-  `text` text NOT NULL,
-  `img` text NOT NULL,
-  `add_time` datetime NOT NULL,
-  `up_time` date DEFAULT NULL
+  `sender_id` int(11) NOT NULL,
+  `receiver_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `timestamp` datetime DEFAULT current_timestamp(),
+  `created_at` datetime DEFAULT current_timestamp(),
+  `content` text NOT NULL,
+  `is_read` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- 傾印資料表的資料 `messages`
+--
+
+INSERT INTO `messages` (`id`, `sender_id`, `receiver_id`, `message`, `timestamp`, `created_at`, `content`, `is_read`) VALUES
+(2, 2, 1, 'HAHA', '2025-06-04 13:17:40', '2025-06-04 13:17:40', '', 1),
+(3, 1, 2, '安安', '2025-06-04 13:59:58', '2025-06-04 13:59:58', '', 0);
 
 -- --------------------------------------------------------
 
@@ -79,7 +88,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `account`, `password`, `name`, `type`) VALUES
-(1, '1234', '1234', 'Leon', 'a');
+(1, '1234', '1234', 'Leon', 'ad'),
+(2, '1111', '1111', 'Leon-u1', 'u'),
+(3, '1212', '1212', 'Leon-c1', 'c');
 
 --
 -- 已傾印資料表的索引
@@ -92,9 +103,9 @@ ALTER TABLE `cars`
   ADD PRIMARY KEY (`id`);
 
 --
--- 資料表索引 `msg`
+-- 資料表索引 `messages`
 --
-ALTER TABLE `msg`
+ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -114,16 +125,16 @@ ALTER TABLE `cars`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `msg`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `messages`
 --
-ALTER TABLE `msg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

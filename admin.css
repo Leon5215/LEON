@@ -5,6 +5,7 @@ body {
     color: #fff;
 }
 
+
 header {
     background-color: #c00;
     padding: 20px;
@@ -194,4 +195,393 @@ table tr:nth-child(even) {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+.login-card {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #c00;
+  width: 400px;
+  margin: 0 auto;
+  color: white;
+  text-align: left;
+}
+
+.login-card h2 {
+  margin-bottom: 20px;
+  color: #f33;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #c00;
+  box-shadow: 0 0 5px #c00;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #c00;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #a00;
+}
+.chat-box {
+  border: 1px solid #444;
+  padding: 15px;
+  height: 400px;
+  overflow-y: auto;
+  background: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #c00;
+}
+
+.message {
+  margin: 8px 0;
+  padding: 10px 15px;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.sent {
+  background-color: #c00;
+  color: white;
+  margin-left: auto;
+  text-align: right;
+}
+
+.received {
+  background-color: #333;
+  color: white;
+  margin-right: auto;
+  text-align: left;
+}
+
+.message strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #ff7f7f;
+}
+
+.message small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+form {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+textarea {
+  flex: 1;
+  resize: none;
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 14px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #c00;
+  box-shadow: 0 0 5px #c00;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #c00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #a00;
+}
+.chat-box {
+  border: 1px solid #444;
+  padding: 15px;
+  height: 450px;       /* 固定高度 */
+  overflow-y: auto;
+  background: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #c00;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 12px 18px;
+  border-radius: 20px;
+  font-size: 15px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.sent {
+  align-self: flex-end;
+  background-color: #c00;
+  color: #fff;
+  border-bottom-right-radius: 0;
+  text-align: right;
+}
+
+.received {
+  align-self: flex-start;
+  background-color: #333;
+  color: #fff;
+  border-bottom-left-radius: 0;
+  text-align: left;
+}
+
+.message strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ff7f7f;
+}
+
+.message small {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #aaa;
+  opacity: 0.8;
+}
+
+/* 表單改成一行 */
+form {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+textarea {
+  flex: 1;
+  resize: none;
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 20px;
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 14px;
+  height: 50px;
+  line-height: 1.2;
+  font-family: Arial, sans-serif;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #c00;
+  box-shadow: 0 0 5px #c00;
+}
+
+button {
+  padding: 0 25px;
+  background-color: #c00;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #a00;
+}
+.read-status {
+  font-size: 12px;
+  margin-left: 10px;
+  font-weight: normal;
+}
+
+.read-status.read {
+  color: #0f0; /* 綠色表示已讀 */
+}
+
+.read-status.unread {
+  color: #ccc;
+  font-style: italic;
+}
+.chat-box {
+  background: #e5ddd5;
+  padding: 20px;
+  height: 400px;
+  overflow-y: auto;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* 訊息外層定位 */
+.message {
+  display: flex;
+  margin-bottom: 12px;
+  max-width: 75%;
+}
+
+.message.sent {
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.message.received {
+  justify-content: flex-start;
+  margin-right: auto;
+}
+
+/* 氣泡 */
+.bubble {
+  position: relative;
+  padding: 10px 15px;
+  border-radius: 20px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 100%;
+  color: #222;
+}
+
+/* 客服送出的訊息 */
+.message.sent .bubble {
+  background-color: #dcf8c6; /* LINE 綠色泡泡 */
+  color: #000;
+  border-bottom-right-radius: 4px;
+}
+
+/* 使用者收到的訊息 */
+.message.received .bubble {
+  background-color: #fff;
+  color: #000;
+  border-bottom-left-radius: 4px;
+}
+
+/* 發訊者名稱 */
+.bubble .sender {
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* 訊息文字 */
+.bubble .text {
+  white-space: pre-wrap;
+}
+
+/* 訊息 meta（時間＋已讀） */
+.bubble .meta {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #999;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* 時間 */
+.bubble .time {
+  font-style: normal;
+}
+
+/* 已讀狀態 */
+.read-status.read {
+  color: #4caf50; /* 綠色 */
+  font-weight: 600;
+}
+
+.read-status.unread {
+  color: #bbb;
+  font-style: italic;
+}
+
+/* 表單樣式調整 */
+form {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+textarea {
+  flex: 1;
+  resize: none;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.1);
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #34b7f1;
+  box-shadow: 0 0 8px #34b7f1;
+}
+
+button {
+  padding: 0 25px;
+  background-color: #34b7f1;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0a8ddb;
 }
