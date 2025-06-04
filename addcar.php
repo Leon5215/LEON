@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $imgName = $_FILES['car_img']['name'];
     $tmpName = $_FILES['car_img']['tmp_name'];
 
-    $targetDir = "uploads/";
+    $targetDir = "img/";
     $imgPath = $targetDir . basename($imgName);
 
     if (move_uploaded_file($tmpName, $imgPath)) {

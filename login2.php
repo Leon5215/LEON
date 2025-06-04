@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
         $_SESSION["account"] = $user["account"];
         $_SESSION['name'] = $user['name']; 
         $_SESSION['type'] = $user['type'];
-        $_SESSION['id'] = $row['id'];
+        $_SESSION['id'] = $user['id'];
         // 根據權限導向不同首頁
         if ($user['type'] === 'ad') {
             echo "<script>location.href='index-a.php'</script>"; // 管理員首頁
