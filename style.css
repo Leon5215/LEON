@@ -104,7 +104,9 @@ main {
 .login-button:hover {
     background-color: #a00;
 }
-
+#music{
+    display: none;
+}
 footer {
     background-color: #222;
     color: #aaa;

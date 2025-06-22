@@ -35,45 +35,32 @@
         
 <div class="car-list"><?php
 // 資料庫連線設定
-$host = 'localhost';
-$dbname = 'leon';
-$user = 'root';
-$pass = '';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // 抓取所有車款資料
-    $stmt = $pdo->query("SELECT name, image FROM cars");
-    $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    echo "<p>資料庫連線失敗：" . $e->getMessage() . "</p>";
-}
+include ("db.php");
 ?>
     <h2>車款總覽</h2>
     <div class="car-items">
-        <?php if (!empty($cars)): ?>
-            <?php foreach ($cars as $car): ?>
-                <div class="car-item">
-                    <img src="img/<?php echo htmlspecialchars($car['image']); ?>" alt="<?php echo htmlspecialchars($car['name']); ?>" width="200">
-                    <h3><?php echo htmlspecialchars($car['name']); ?></h3>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>目前沒有車款資料。</p>
-        <?php endif; ?>
+        <?php
+        $sql="SELECT * FROM `cars` WHERE 1";
+        $res=mysqli_query($link,$sql);
+        while($row=mysqli_fetch_assoc($res)){
+            echo "<div class='car-item'>";
+            echo "<img src='img/".$row["img"]."' alt='".$row["name"]."' style='width:40%;'>";
+            echo "<h3>".$row["name"]."<h3>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </div>
 
     </main>
+    <iframe width="0" height="0" style="display:none;" 
+    src="https://www.youtube.com/embed/TgW7WzTGV0Q?autoplay=1&si=SLxXhmZTQr5psswk"
+    title="YouTube video player" frameborder="0"
+    allow="autoplay"
+    allowfullscreen>
+</iframe>
 
-    <!-- 自動播放的 YouTube 音樂影片（已靜音） -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/TgW7WzTGV0Q?autoplay=1&mute=1&si=SLxXhmZTQr5psswk"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-    </iframe>
+
 
     <footer>
         &copy; 2025 車款介紹平台 - 保留所有權利

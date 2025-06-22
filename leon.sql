@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2025-06-04 08:04:06
+-- 產生時間： 2025-06-23 01:20:41
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.0.30
 
@@ -29,20 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cars` (
   `id` int(11) NOT NULL,
-  `car_name` varchar(255) DEFAULT NULL,
-  `car_desc` text DEFAULT NULL,
-  `car_img` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL
+  `name` varchar(20) NOT NULL,
+  `cc` varchar(20) NOT NULL,
+  `hp` varchar(20) NOT NULL,
+  `wd` varchar(20) NOT NULL,
+  `people` varchar(20) NOT NULL,
+  `text` varchar(20) NOT NULL,
+  `img` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `cars`
 --
 
-INSERT INTO `cars` (`id`, `car_name`, `car_desc`, `car_img`, `name`, `description`, `image`) VALUES
-(1, NULL, NULL, NULL, 'GR Corolla', '123', 'GR Corolla.jpeg');
+INSERT INTO `cars` (`id`, `name`, `cc`, `hp`, `wd`, `people`, `text`, `img`) VALUES
+(2, 'GR86', '2387', '234', 'FR', '4', '前置後驅，操控樂趣十足的跑車。', '20250623010343_5391.jpg'),
+(3, 'LFA', '4805', '560', 'ASG', '2', '日系超跑，聲浪迷人，極致工藝代表。', '20250623011621_8529.jpg');
 
 -- --------------------------------------------------------
 
@@ -122,7 +124,7 @@ ALTER TABLE `user`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `messages`
