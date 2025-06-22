@@ -1,35 +1,10 @@
 <!DOCTYPE html>
-<?php
-session_start();
-include("db.php");
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['car_name'];
-    $desc = $_POST['car_desc'];
-
-    $imgName = $_FILES['car_img']['name'];
-    $tmpName = $_FILES['car_img']['tmp_name'];
-
-    $targetDir = "img/";
-    $imgPath = $targetDir . basename($imgName);
-
-    if (move_uploaded_file($tmpName, $imgPath)) {
-        $stmt = $conn->prepare("INSERT INTO cars (name, description, image) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $name, $desc, $imgName);
-        $stmt->execute();
-        header("Location: carlist.php");
-        exit;
-    } else {
-        echo "<p style='color:red;'>圖片上傳失敗。</p>";
-    }
-}
-?>
 
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <title>新增車輛</title>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="/style/admin.css">
 </head>
 <body>
 <header><h1>新增車輛</h1></header>
@@ -42,22 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <main>
     <form action="addcar2.php" method="post" enctype="multipart/form-data" class="login-card">
-        <h2>新增車輛</h2>
-        <table class="form-table" align="center">
-            <tr>
-                <td><label for="car_name">車名：</label></td>
-                <td><input type="text" name="car_name" id="car_name" required></td>
-            </tr>
-            <tr>
-                <td><label for="car_desc">車輛介紹：</label></td>
-                <td><textarea name="car_desc" id="car_desc" rows="4" required></textarea></td>
-            </tr>
-            <tr>
-                <td><label for="car_img">圖片：</label></td>
-                <td><input type="file" name="car_img" id="car_img"></td>
-            </tr>
+        
+        <table>
+            <tr><td colspan="2"><h2>新增車輛</h2></td></tr>
+            <tr><td>車名 : </td><td><input type="text" name="name" required></td></tr>
+            <tr><td>CC數：</td><td><input type="text" name="cc" required></td></tr>
+            <tr><td>馬力：</td><td><input type="text" name="hp" required></td></tr>
+            <tr><td>傳動：</td><td><input type="text" name="wd" required></td></tr>
+            <tr><td>人數：</td><td><input type="text" name="peo" required></td></tr>
+            <tr><td>介紹：</td><td><input type="text" name="text" required></td></tr>
+            <tr><td>圖片：</td><td><input type="file" name="img" accept="image/*" required></td></tr>
+            <tr><td colspan="2"><input type="submit" value="送出" class="login-button"></td></tr>
         </table>
-        <button type="submit" class="login-button">送出</button>
     </form>
 </main>
 

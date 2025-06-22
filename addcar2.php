@@ -1,32 +1,61 @@
-<?php
-include("db.php");
+<?
+include ("db.php");
+$name=$_POST["name"];
+$cc=$_POST["cc"];
+$hp=$_POST["hp"];
+$wd=$_POST["wd"];
+$peo=$_POST["peo"];
+$text=$_POST["text"];
 
-$car_name = $_POST['car_name'];
-$car_desc = $_POST['car_desc'];
+$targetDir = "img/"; // 要儲存圖片的資料夾
 
-$img_name = $_FILES['car_img']['name'];
-$tmp_name = $_FILES['car_img']['tmp_name'];
-
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($img_name);
-
-if (!is_dir($target_dir)) {
-    mkdir($target_dir, 0777, true);
+// 確保資料夾存在
+if (!is_dir($targetDir)) {
+    mkdir($targetDir, 0755, true);
 }
 
-if (move_uploaded_file($tmp_name, $target_file)) {
-    $stmt = $conn->prepare("INSERT INTO cars (name, description, image) VALUES (?, ?, ?)");
+// 檢查是否為圖片
+$check = getimagesize($_FILES["img"]["tmp_name"]);
+if ($check === false) {
+    echo "檔案不是圖片。";
+    exit;
+}
+
+// 限制檔案大小 (最大 2MB)
+if ($_FILES["img"]["size"] > 2000000) {
+    echo "檔案太大。";
+    exit;
+}
+
+// 檢查副檔名
+$imageFileType = strtolower(pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION));
+$allowedTypes = ["jpg", "jpeg", "png", "gif"];
+if (!in_array($imageFileType, $allowedTypes)) {
+    echo "只允許 JPG, JPEG, PNG, GIF 格式。";
+    exit;
+}
+
+$check="SELECT * FROM `cars` WHERE `name`=$name";
+$check_res=mysqli_query($link,$check);
+if(mysqli_num_rows($check_res)>0){
+    echo "<script>alert('已有此車輛')</script>";
+    echo "<script>location.href='addcar.php'</script>";
+}else{
     
-    // 檢查 prepare 是否成功
-    if (!$stmt) {
-        die("Prepare failed: " . $conn->error);  // ❗會顯示 SQL 錯誤細節
-    }
-
-    $stmt->bind_param("sss", $car_name, $car_desc, $img_name);
-    $stmt->execute();
-
-    echo "✅ 新增成功！<br><a href='carlist.php'>回到車輛清單</a>";
+//  建立不重複檔名（時間戳 + 隨機數）
+$uniqueName = date("YmdHis") . '_' . rand(1000, 9999) . '.' . $imageFileType;
+$targetFile = $targetDir . $uniqueName;
+// 嘗試移動檔案
+if (move_uploaded_file($_FILES["img"]["tmp_name"], $targetFile)) {
 } else {
-    echo "❌ 圖片上傳失敗。";
+    echo "檔案上傳失敗。";
 }
+$sql="INSERT INTO `cars`(`id`, `name`, `cc`, `hp`, `wd`, `people`, `text`, `img`) VALUES (null,'$name','$cc','$hp','$wd','$peo','$text','$uniqueName')";
+mysqli_query($link,$sql);
+
+echo "<script>alert('註冊成功，請重新登入')</script>";
+echo "<script>location.href='checkcar?img=".$uniqueName.".php'</script>";
+}
+
+
 ?>
