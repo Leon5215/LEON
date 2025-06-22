@@ -18,8 +18,8 @@
 <main>
     <?php
     include ("db.php");
-    $img=$_GET["img"];
-    $sql="SELECT * FROM `cars` WHERE `img`=$img";
+    $id=$_GET["id"];
+    $sql="SELECT * FROM `cars` WHERE `id`=$id";
     $res=mysqli_query($link,$sql);
     while($row=mysqli_fetch_assoc($res)){
         echo "<table class='login-card'>

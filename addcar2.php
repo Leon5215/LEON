@@ -45,9 +45,13 @@ if (move_uploaded_file($_FILES["img"]["tmp_name"], $targetFile)) {
 }
 $sql="INSERT INTO `cars`(`id`, `name`, `cc`, `hp`, `wd`, `people`, `text`, `img`) VALUES (null,'$name','$cc','$hp','$wd','$peo','$text','$uniqueName')";
 mysqli_query($link,$sql);
-
+$sql2="SELECT * FROM `cars` WHERE `img`=$img";
+$res=mysqli_query($link,$sql2);
+while($row=mysqli_fetch_assoc($res)){
+$id=$row["id"];
+}
 echo "<script>alert('新增成功')</script>";
-echo "<script>location.href='checkcar.php?img=".$uniqueName."'</script>";
+echo "<script>location.href='checkcar.php?img=".$id."'</script>";
 
 
 
