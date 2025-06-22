@@ -1,4 +1,4 @@
-<?
+<?php
 include ("db.php");
 $name=$_POST["name"];
 $cc=$_POST["cc"];
@@ -34,14 +34,7 @@ if (!in_array($imageFileType, $allowedTypes)) {
     echo "只允許 JPG, JPEG, PNG, GIF 格式。";
     exit;
 }
-
-$check="SELECT * FROM `cars` WHERE `name`=$name";
-$check_res=mysqli_query($link,$check);
-if(mysqli_num_rows($check_res)>0){
-    echo "<script>alert('已有此車輛')</script>";
-    echo "<script>location.href='addcar.php'</script>";
-}else{
-    
+ 
 //  建立不重複檔名（時間戳 + 隨機數）
 $uniqueName = date("YmdHis") . '_' . rand(1000, 9999) . '.' . $imageFileType;
 $targetFile = $targetDir . $uniqueName;
@@ -53,9 +46,9 @@ if (move_uploaded_file($_FILES["img"]["tmp_name"], $targetFile)) {
 $sql="INSERT INTO `cars`(`id`, `name`, `cc`, `hp`, `wd`, `people`, `text`, `img`) VALUES (null,'$name','$cc','$hp','$wd','$peo','$text','$uniqueName')";
 mysqli_query($link,$sql);
 
-echo "<script>alert('註冊成功，請重新登入')</script>";
-echo "<script>location.href='checkcar?img=".$uniqueName.".php'</script>";
-}
+echo "<script>alert('新增成功')</script>";
+echo "<script>location.href='checkcar.php?img=".$uniqueName."'</script>";
+
 
 
 ?>
