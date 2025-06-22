@@ -1,7 +1,7 @@
 <?php
 include("db.php");
-$account=$_GET["acc"];
-$password=$_GET["pass"];
+$account=$_GET["account"];
+$password=$_GET["password"];
 $sql="SELECT * FROM `user` WHERE `account`='$account'";
 $res=mysqli_query($link,$sql);
 if(mysqli_num_rows($res)>0){
