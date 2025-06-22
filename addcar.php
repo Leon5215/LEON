@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>新增車輛</title>
-    <link rel="stylesheet" href="/style/admin.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 <header><h1>新增車輛</h1></header>

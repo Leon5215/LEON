@@ -17,24 +17,33 @@
 
 <main>
     <?php
-    include ("db.php");
-    $id=$_GET["id"];
-    $sql="SELECT * FROM `cars` WHERE `id`=$id";
-    $res=mysqli_query($link,$sql);
-    while($row=mysqli_fetch_assoc($res)){
-        echo "<table class='login-card'>
-            <tr><td colspan='2'><h2>新增車輛</h2></td></tr>
-            <tr><td>車名 : </td><td>".$row["name"]."</td></tr>
-            <tr><td>CC數：</td><td>".$row["cc"]."</td></tr>
-            <tr><td>馬力：</td><td>".$row["hp"]."</td></tr>
-            <tr><td>傳動：</td><td>".$row["wd"]."</td></tr>
-            <tr><td>人數：</td><td>".$row["people"]."</td></tr>
-            <tr><td>介紹：</td><td>".$row["text"]."</td></tr>
-            <tr><td>圖片：</td><td><img src='img/".$img."' style='width=40%'></td></tr>
-        </table>";
-    }
-    
-    ?>
+// 資料庫連線
+$conn = new mysqli("127.0.0.1","root","","leon");
+
+// 檢查連線
+if ($conn->connect_error) {
+    die("連線失敗：" . $conn->connect_error);
+}
+
+$img = "20250622180533_8043.jpg";  // 確保這裡的變數有被正確取得
+
+$sql = "SELECT * FROM cars WHERE img = '$img'";
+$result = $conn->query($sql);
+
+// 檢查查詢是否成功
+if ($result === false) {
+    die("SQL 錯誤：" . $conn->error); // 會顯示錯誤訊息幫助你除錯
+}
+
+// 繼續處理查詢結果
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "車輛名稱：" . $row['name'] . "<br>";
+    // 根據你的資料庫欄位調整
+}
+
+$conn->close();
+?>
+
     </main>
 
 <footer>&copy; 2025 車輛管理平台</footer>
