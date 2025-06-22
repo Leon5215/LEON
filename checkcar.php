@@ -25,7 +25,7 @@ if ($conn->connect_error) {
     die("連線失敗：" . $conn->connect_error);
 }
 
-$img = "20250622180533_8043.jpg";  // 確保這裡的變數有被正確取得
+$img = $_GET["img"];  // 確保這裡的變數有被正確取得
 
 $sql = "SELECT * FROM cars WHERE img = '$img'";
 $result = $conn->query($sql);
@@ -37,8 +37,16 @@ if ($result === false) {
 
 // 繼續處理查詢結果
 while ($row = mysqli_fetch_assoc($result)) {
-    echo "車輛名稱：" . $row['name'] . "<br>";
-    // 根據你的資料庫欄位調整
+    echo "<table class='login-card'>
+            <tr><td colspan='2'><h2>確認車輛</h2></td></tr>
+            <tr><td>車名 : </td><td>".$row["name"]."</td></tr>
+            <tr><td>CC數：</td><td>".$row["cc"]."</td></tr>
+            <tr><td>馬力：</td><td>".$row["hp"]."</td></tr>
+            <tr><td>傳動：</td><td>".$row["wd"]."</td></tr>
+            <tr><td>人數：</td><td>".$row["people"]."</td></tr>
+            <tr><td>介紹：</td><td>".$row["text"]."</td></tr>
+            <tr><td>圖片：</td><td><img src='img/".$row["img"]."' style='width:60%'></td></tr>
+        </table>";
 }
 
 $conn->close();
