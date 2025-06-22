@@ -1,7 +1,7 @@
 <?php
 include("db.php");
-$account=$_GET["account"];
-$password=$_GET["password"];
+$account=$_POST["account"];
+$password=$_POST["password"];
 $sql="SELECT * FROM `user` WHERE `account`='$account'";
 $res=mysqli_query($link,$sql);
 if(mysqli_num_rows($res)>0){
@@ -13,7 +13,6 @@ if(mysqli_num_rows($res)>0){
             $_SESSION["acc"]=$row["account"];
             $_SESSION["name"]=$row["name"];
             $_SESSION["type"]=$row["type"];
-            $_SESSION["img"]=$row["img"];
            if ($row['type'] === 'ad') {
             echo "<script>location.href='index-a.php'</script>"; // 管理員首頁
         } elseif ($row['type'] === 'c') {
