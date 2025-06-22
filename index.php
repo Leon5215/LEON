@@ -68,6 +68,13 @@ try {
 
     </main>
 
+    <!-- 自動播放的 YouTube 音樂影片（已靜音） -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TgW7WzTGV0Q?autoplay=1&mute=1&si=SLxXhmZTQr5psswk"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+
     <footer>
         &copy; 2025 車款介紹平台 - 保留所有權利
     </footer>
